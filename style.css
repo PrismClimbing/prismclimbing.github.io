@@ -1,0 +1,15 @@
+.container-columns {
+}
+.container-row {
+  height: 100%;
+}
+.container-page {
+  height: 70vh;
+}
+.sidebar, .main {
+  padding: 10px;
+  height: 100%;
+}
+.nav-bar-style {
+  margin-bottom: 30px !important;
+}
