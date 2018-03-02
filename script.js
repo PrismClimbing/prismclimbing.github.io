@@ -4,6 +4,6 @@ $('.collapse.container').on('hidden.bs.collapse', function (e) {
   }
 });
 $(".nav-link").on("click", function(){
-  $("active nav-link").removeClass("active");
+  $(".active.nav-link").removeClass("active");
   $(this).addClass("active");
 });
