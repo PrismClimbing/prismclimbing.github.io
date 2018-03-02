@@ -1,4 +1,4 @@
-$('.nav-link a').on('click',function(e) {
+$('.nav-link').on('click',function(e) {
     if($("collapse container").hasClass('in')) {
         e.stopPropagation();
     }
