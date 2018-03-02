@@ -1,8 +1,5 @@
-$('.nav-link').on('click',function(e) {
-    if($(".collapse").hasClass('in')) {
-        e.stopPropagation();
-    }
-    // You can also add preventDefault to remove the anchor behavior that makes
-    // the page jump
-    // e.preventDefault();
+$('.collapse.container').on('hidden.bs.collapse', function (e) {
+  if($('.collapse.container').length !== 2) {
+	$("#" + e.currentTarget.id.toString()).collapse('show');
+  }
 });
