@@ -1,7 +1,8 @@
 {
 "users": [
-"John Doe": {
-  
+  {
+    "name": "John Doe",
+    "problems": []
   }
 ]
 }
