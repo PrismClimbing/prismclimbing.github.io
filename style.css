@@ -13,3 +13,10 @@
 .nav-bar-style {
   margin-bottom: 30px !important;
 }
+.no-transition {
+  -webkit-transition: height 0.05s !important;
+  -moz-transition: height 0.05s !important;
+  -ms-transition: height 0.05s !important;
+  -o-transition: height 0.05s !important;
+  transition: height 0.05s !important;
+}

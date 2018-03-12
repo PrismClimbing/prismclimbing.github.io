@@ -1,2 +1,2 @@
 # prismclimbing.github.io
-Our API and website
+The website of PrismClimbing
