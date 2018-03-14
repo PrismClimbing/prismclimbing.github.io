@@ -14,9 +14,19 @@
   margin-bottom: 30px !important;
 }
 .no-transition {
-  -webkit-transition: height 0.05s !important;
-  -moz-transition: height 0.05s !important;
-  -ms-transition: height 0.05s !important;
-  -o-transition: height 0.05s !important;
-  transition: height 0.05s !important;
+  -webkit-transition: height 0.5s !important;
+  -moz-transition: height 0.5s !important;
+  -ms-transition: height 0.5s !important;
+  -o-transition: height 0.5s !important;
+  transition: height 0.5s !important;
+}
+.small-header {
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
+.features-list {
+  padding-bottom: 30px;
+}
+.nav-item {
+  cursor: pointer;
 }

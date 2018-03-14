@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang='en'>
+
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
@@ -15,50 +16,160 @@
     </div>
   </div>
   <div class='container container-page'>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-bar-style">
-      <a class="navbar-brand" href="#">PrismClimbing</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a id="openHome" class="nav-link active" data-toggle="collapse" data-target="#homeContainer" aria-expanded="true" aria-controls="homeContainer" href="#home">Home</a>
+    <nav class='navbar navbar-expand-lg navbar-dark bg-dark nav-bar-style'>
+      <a class='navbar-brand' id='openHome2' data-toggle='collapse' data-target='#homeContainer2' aria-expanded='true' aria-controls='homeContainer2' href='#home'>PrismClimbing</a>
+      <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarText' aria-controls='navbarText' aria-expanded='false' aria-label='Toggle navigation'>
+        <span class='navbar-toggler-icon'></span>
+      </button>
+      <div class='collapse navbar-collapse' id='navbarText'>
+        <ul class='navbar-nav mr-auto'>
+          <li class='nav-item'>
+            <a id='openHome' class='nav-link main-nav active' data-toggle='collapse' data-target='#homeContainer' aria-expanded='true' aria-controls='homeContainer' href='#home'>Home</a>
           </li>
-          <li class="nav-item">
-            <a id="openFeatures" class="collapsed nav-link" data-toggle="collapse" data-target="#featuresContainer" aria-expanded="false" aria-controls="featuresContainer" href="#features">Features</a>
+          <li class='nav-item'>
+            <a id='openFeatures' class='collapsed nav-link main-nav' data-toggle='collapse' data-target='#featuresContainer' aria-expanded='false' aria-controls='featuresContainer' href='#features'>Features</a>
           </li>
-          <li class="nav-item">
-            <a id="openProblems" class="collapsed nav-link" data-toggle="collapse" data-target="#problemsContainer" aria-expanded="false" aria-controls="problemsContainer" href="#problems">Problems</a>
+          <li class='nav-item'>
+            <a id='openProblems' class='collapsed nav-link main-nav' data-toggle='collapse' data-target='#problemsContainer' aria-expanded='false' aria-controls='problemsContainer' href='#problems'>Problems</a>
+          </li>
+          <li class='nav-item d-none'>
+            <a id='openProfile' class='collapsed nav-link main-nav' data-toggle='collapse' data-target='#profileContainer' aria-expanded='false' aria-controls='profileContainer' href='#profile'>Profile</a>
           </li>
         </ul>
-        <span class="navbar-text">
-           Here you can find all the information you need
-        </span>
+      </div>
+      <div class='navbar-collapse collapse w-100 order-3 dual-collapse2'>
+        <ul class='navbar-nav ml-auto'>
+          <li class='nav-item'>
+            <a id='openSignin' class='nav-link login-nav collapsed' data-toggle='collapse' data-target='#signincontainer' aria-expanded='false' aria-controls='signincontainer' href='#signin' href='#'>Sign In</a>
+          </li>
+          <li class='nav-item'>
+            <a id='openSignup' class='nav-link login-nav collapsed' data-toggle='collapse' data-target='#signupcontainer' aria-expanded='false' aria-controls='signupcontainer' href='#signup' href='#'>Sign Up</a>
+          </li>
+          <li class='nav-item'>
+            <a id='logOut' class='nav-link d-none'>Log Out</a>
+          </li>
+        </ul>
       </div>
     </nav>
-    <div class='container bg-light' id="main-container">
-      <div class="collapse show container no-transition" id="homeContainer" data-parent="#main-container" aria-labelledby="openHome">
-        This is the Home Page.
+    <div class='container bg-light' id='main-container'>
+      <div class='collapse no-transition' id='homeContainer' data-parent='#main-container' aria-labelledby='openHome'>
+        <div class='container'>
+          <div class='container'>
+            <h3 class='small-header'>Home</h3>
+          </div>
+        </div>
       </div>
-      <div class="collapse container no-transition" id="featuresContainer" data-parent="#main-container" aria-labelledby="openFeatures">
-        This is the Features Page.
+      <div class='collapse show no-transition' id='homeContainer2' data-parent='#main-container' aria-labelledby='openHome2'>
+        <div class='container'>
+          <div class='container'>
+            <h3 class='small-header'>Home</h3>
+          </div>
+        </div>
       </div>
-      <div class="collapse container no-transition" id="problemsContainer" data-parent="#main-container" aria-labelledby="openProblems">
-        This is the Problems Page.
+      <div class='collapse no-transition' id='signincontainer' data-parent='#main-container' aria-labelledby='openSignin'>
+        <div class='container small-header text-center'>
+          <h3>Sign in</h3>
+          <center>
+            <div class='card' style='width: 18rem;'>
+              <div class='card-body'>
+                <h5 class='card-title'>Welcome Back!</h5>
+                <h6 class='card-subtitle mb-2 text-muted'>Please enter your username and password</h6>
+                <div class='input-group mb-3'>
+                  <input type='text' class='form-control' placeholder='Email' aria-label='Email' aria-describedby='email-addon' id='loginEmail'>
+                </div>
+                <div class='input-group mb-3'>
+                  <input class='form-control' placeholder='Password' type='password' aria-label='Password' aria-describedby='password-addon' id='loginPass'>
+                </div>
+                <button type='button' class='btn btn-primary' onclick='signIn()'>Sign In</button>
+              </div>
+            </div>
+          </center>
+        </div>
+      </div>
+      <div class='collapse no-transition' id='signupcontainer' data-parent='#main-container' aria-labelledby='openSignup'>
+        <div class='container text-center small-header'>
+          <h3>Sign up</h3>
+          <center>
+            <div class='card' style='width: 18rem;'>
+              <div class='card-body'>
+                <h5 class='card-title'>Happy to see you here!</h5>
+                <h6 class='card-subtitle mb-2 text-muted'>Please create an email and a password</h6>
+                <div class='input-group mb-3'>
+                  <input type='text' class='form-control' placeholder='Email' aria-label='Email' aria-describedby='email-addon' id='signupEmail'>
+                </div>
+                <div class='input-group mb-3'>
+                  <input class='form-control' placeholder='Password' type='password' aria-label='Password' aria-describedby='password-addon' id='signupPass'>
+                </div>
+                <button type='button' class='btn btn-primary' onclick='signUp()'>Sign Up</button>
+              </div>
+            </div>
+          </center>
+        </div>
+      </div>
+      <div class='collapse no-transition' id='featuresContainer' data-parent='#main-container' aria-labelledby='openFeatures'>
+        <div class='container'>
+          <div class='container'>
+            <h3 class='small-header'>
+            Features
+            <small class='text-muted'>PrismClimbing</small>
+          </h3>
+          </div>
+          <div class='container'>
+            <div class='row features-list'>
+              <div class='col-4'>
+                <div class='list-group' id='list-tab' role='tablist'>
+                  <a class='list-group-item list-group-item-action active' id='list-free-list' data-toggle='list' href='#list-free' role='tab' aria-controls='free'>Free</a>
+                  <a class='list-group-item list-group-item-action' id='list-routesetting-list' data-toggle='list' href='#list-routesetting' role='tab' aria-controls='routesetting'>Routesetting</a>
+                  <a class='list-group-item list-group-item-action' id='list-easy-list' data-toggle='list' href='#list-easy' role='tab' aria-controls='easy'>Easy to use</a>
+                  <a class='list-group-item list-group-item-action' id='list-quick-list' data-toggle='list' href='#list-quick' role='tab' aria-controls='quick'>Quick updates</a>
+                </div>
+              </div>
+              <div class='col-8'>
+                <div class='tab-content' id='nav-tabContent'>
+                  <div class='tab-pane fade show active' id='list-free' role='tabpanel' aria-labelledby='list-free-list'>
+                    <p>PrismClimbing is <strong>100%</strong> free to use. Not only for climbers but also for gyms who want to document their routesetting.</p>
+                  </div>
+                  <div class='tab-pane fade' id='list-routesetting' role='tabpanel' aria-labelledby='list-routesetting-list'>
+                    <p>Routesetters can post their new routes with information like grades, color and the author. The climbers can then for example mark them as climbed.</p>
+                  </div>
+                  <div class='tab-pane fade' id='list-easy' role='tabpanel' aria-labelledby='list-easy-list'>
+                    <p>The PrismClimbing website is extremely easy and compact, however anyone could use it and still be satisfied. An experienced tech engineer to cavemen who just came out of their grotto</p>
+                  </div>
+                  <div class='tab-pane fade' id='list-quick' role='tabpanel' aria-labelledby='list-quick-list'>
+                    <p>PrismClimbings databases are built on google's Firebase. A database that is extremely quick and can reach out to hundreds of users at once. This is what makes updating so fast.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='collapse no-transition' id='problemsContainer' data-parent='#main-container' aria-labelledby='openProblems'>
+        <div class='container'>
+          <div class='container'>
+            <h3 class='small-header'>Problems</h3>
+          </div>
+        </div>
+      </div>
+      <div class='collapse no-transition' id='profileContainer' data-parent='#main-container' aria-labelledby='openProfile'>
+        <div class='container'>
+          <div class='container'>
+            <h3 class='small-header'>Profile</h3>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+  <script src='https://www.gstatic.com/firebasejs/4.11.0/firebase.js'></script>
   <script>
     // Initialize Firebase
     var config = {
-      apiKey: "AIzaSyBRc9MHAGooSkBvMKV3avJfSWcptQfc7oo",
-      authDomain: "prismclimbing-0.firebaseapp.com",
-      databaseURL: "https://prismclimbing-0.firebaseio.com",
-      projectId: "prismclimbing-0",
-      storageBucket: "",
-      messagingSenderId: "31551053696"
+      apiKey: 'AIzaSyBRc9MHAGooSkBvMKV3avJfSWcptQfc7oo',
+      authDomain: 'prismclimbing-0.firebaseapp.com',
+      databaseURL: 'https://prismclimbing-0.firebaseio.com',
+      projectId: 'prismclimbing-0',
+      storageBucket: '',
+      messagingSenderId: '31551053696'
     };
     firebase.initializeApp(config);
   </script>
@@ -66,6 +177,7 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous'></script>
   <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous'></script>
   <script src='script.js'></script>
-  </body>
+  <script src='db.js'></script>
+</body>
 
 </html>
