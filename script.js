@@ -21,10 +21,6 @@ let checkClick = (e) => {
       stopAnimation(e);
     }
   }
-
-  if (e.currentTarget.id !== 'logOut') {
-    window.location.hash = $('.active.nav-link').attr('href');
-  }
   if (e.currentTarget.id == 'logOut') {
     logOut();
   }
@@ -44,9 +40,10 @@ $('.navbar-brand').click(e => {
 });
 
 $('.collapse.no-transition').on('shown.bs.collapse', (e) => {
-  if (e.currentTarget !== $('.active')[0]) {
-    $('.active').removeClass('active');
+  if (e.currentTarget !== $('.active.nav-link')[0]) {
+    $('.active.nav-link').removeClass('active');
     $('#' + $('#' + e.currentTarget.id).attr('aria-labelledby')).addClass('active');
+    window.location.hash = $('.active.nav-link').attr('href');
   }
 });
 
