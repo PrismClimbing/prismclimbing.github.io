@@ -20,6 +20,14 @@
   -o-transition: height 0.5s !important;
   transition: height 0.5s !important;
 }
+#loader {
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      margin: 0;
+      position: fixed;
+      z-index: 10 !important;
+}
 .small-header {
   padding-top: 20px;
   padding-bottom: 15px;
@@ -29,4 +37,28 @@
 }
 .nav-item {
   cursor: pointer;
+}
+#problemsDiv {
+  padding-bottom: 20px;
+}
+.problemTitle {
+  display: inline-block;
+}
+.problemColor {
+  display: inline-block;
+  height: 17px;
+  width: 17px;
+  margin: 1px;
+  margin-bottom: -2px;
+  border-radius: 4px;
+  margin-left: 5px;
+}
+.problemLikes {
+  display: inline-block;
+  margin: 1px;
+  margin-bottom: -2px;
+  margin-left: 3px;
+}
+.problemComments {
+  padding-top: 10px;
 }

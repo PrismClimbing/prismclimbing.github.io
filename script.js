@@ -1,35 +1,5 @@
-let checkHash = (hash) => {
-  if (typeof hash == 'undefined') return;
-  if (hash.charAt(0) != '#') return;
-  $('.nav-link').each(() => {
-    if ($(this).id == 'logOut') return;
-    if (hash == $(this).attr('href')) {
-      $('#' + $(this).attr('aria-controls')).collapse('show');
-      $('.active.nav-link').removeClass('active');
-      $(this).addClass('active');
-    }
-  })
-}
-
-let checkClick = (e) => {
-  if (e.currentTarget.id !== 'logOut') {
-    if ($('[aria-labelledby="' + e.currentTarget.id + '"]').hasClass('show')) {
-      stopAnimation(e);
-    } else if (e.currentTarget.id == 'openHome' && $('[aria-labelledby="openHome2"]').hasClass('show')) {
-      stopAnimation(e);
-    } else if (e.currentTarget.id == 'openHome2' && $('[aria-labelledby="openHome"]').hasClass('show')) {
-      stopAnimation(e);
-    }
-  }
-  if (e.currentTarget.id == 'logOut') {
-    logOut();
-  }
-}
-
-let stopAnimation = (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-}
+const problemsDiv = document.getElementById('problemsDiv');
+let databaseData;
 
 $('.nav-link').click(e => {
   checkClick(e);
@@ -53,4 +23,4 @@ $('.collapse.no-transition').on('shown.bs.collapse', (e) => {
   }
 });
 
-window.onload = checkHash(window.location.hash);
+window.onload = functionRedirector();
