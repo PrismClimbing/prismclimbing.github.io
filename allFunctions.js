@@ -29,6 +29,7 @@ let addCommentInfo = (comments) => {
     commentWrapper.append(commentUserName);
     commentWrapper.append(commentText);
     commentWrapper.classList.add('container');
+    commentWrapper.classList.add('list-group-item');
     commentDivReturn.append(commentWrapper);
   }
   return commentDivReturn;
@@ -56,6 +57,7 @@ let addProblemInfo = (databaseData) => {
       let problemLikesNum = makeElem('h6');
       let problemCommentsDiv = addCommentInfo(comments);
       problemCommentsDiv.classList.add('problemComments');
+      problemCommentsDiv.classList.add('list-group');
       setText(problemTitle, grade);
       problemTitle.classList.add('problemTitle');
       problemColor.style.backgroundColor = color;
