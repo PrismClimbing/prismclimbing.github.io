@@ -62,3 +62,17 @@
 .problemComments {
   padding-top: 10px;
 }
+.commentImg {
+  border-radius: 10px;
+}
+.problemLikes {
+  padding-top: 5px;
+}
+.commentWrapper {
+  padding-top: 10px;
+}
+.commentBtn {
+  margin-left: 7px;
+  cursor: pointer;
+  display: inline-block;
+}

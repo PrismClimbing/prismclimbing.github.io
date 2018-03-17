@@ -5,8 +5,8 @@ let functionRedirector = () => {
 let firebaseLoadData = () => {
   firebase.database().ref('/').once('value', (snap) => {
     databaseData = snap.val();
-    $("#loader").fadeOut("fast");
-    addProblemInfo(databaseData)
+    $('#loader').fadeOut('fast');
+    initProblemInfo(databaseData)
   });
 }
 let toArray = (obj) => {
@@ -15,66 +15,8 @@ let toArray = (obj) => {
 let makeElem = (elem) => {
   return document.createElement(elem);
 }
-let addCommentInfo = (comments) => {
-  let commentDivReturn = makeElem('div');
-  commentDivReturn.innerHTML = '<h5>Comments</h5>'
-  for(i in comments) {
-    let commentWrapper = makeElem('div');
-    let commentUser = databaseData.users[comments[i].user].username;
-    let comment = comments[i].message;
-    let commentUserName = makeElem('h6');
-    let commentText = makeElem('p');
-    setText(commentUserName, commentUser);
-    setText(commentText, comment);
-    commentWrapper.append(commentUserName);
-    commentWrapper.append(commentText);
-    commentWrapper.classList.add('container');
-    commentWrapper.classList.add('list-group-item');
-    commentDivReturn.append(commentWrapper);
-  }
-  return commentDivReturn;
-}
 let setText = (elem, text) => {
   elem.innerText = text;
-}
-let addProblemInfo = (databaseData) => {
-  let gyms = databaseData.gyms;
-  for(i in gyms) {
-    let gymNameAppend = makeElem('h4');
-    let problems = gyms[i].problems;
-    setText(gymNameAppend, gyms[i].name);
-    problemsDiv.append(gymNameAppend);
-    for(k in problems) {
-      let grade = problems[k].grade;
-      let comments = problems[k].comments;
-      let likes = problems[k].likes;
-      let color = problems[k].color;
-      let problemDiv = makeElem('div');
-      let problemTitleDiv = makeElem('div');
-      let problemTitle = makeElem('h5');
-      let problemColor = makeElem('div');
-      let problemLikesDiv = makeElem('div');
-      let problemLikesNum = makeElem('h6');
-      let problemCommentsDiv = addCommentInfo(comments);
-      problemCommentsDiv.classList.add('problemComments');
-      problemCommentsDiv.classList.add('list-group');
-      setText(problemTitle, grade);
-      problemTitle.classList.add('problemTitle');
-      problemColor.style.backgroundColor = color;
-      problemColor.classList.add('problemColor')
-      problemTitleDiv.append(problemTitle);
-      problemTitleDiv.append(problemColor);
-      setText(problemLikesNum, likes.toString());
-      problemLikesNum.classList.add('problemLikes');
-      problemLikesDiv.innerHTML = '<img src="thumbsup.jpg" style="display:inline-block" height="15" width="15"></img>';
-      problemLikesDiv.append(problemLikesNum);
-      problemDiv.classList.add('list-group-item');
-      problemDiv.append(problemTitleDiv);
-      problemDiv.append(problemCommentsDiv);
-      problemDiv.append(problemLikesDiv);
-      problemsDiv.append(problemDiv);
-    }
-  }
 }
 let checkHash = (hash) => {
   if (typeof hash == 'undefined') return;
@@ -88,7 +30,30 @@ let checkHash = (hash) => {
     }
   })
 }
-
+let likeButtonClicked = (self) => {
+  self = self.target;
+  let problemKey = self.id.split(' ')[0];
+  let gymKey = self.id.split(' ')[1];
+  if (firebase.auth().currentUser !== null) {
+    if (self.src == window.location.origin + '/thumbsup-not-like.jpg') {
+      self.src = 'thumbsup-like.jpg';
+      firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/likes/' + problemKey).set('true');
+      databaseData.users[firebase.auth().currentUser.uid].likes[problemKey] = 'true';
+      firebase.database().ref('gyms/' + gymKey + '/problems/' + problemKey + '/likes').set(databaseData.gyms[gymKey].problems[problemKey].likes + 1);
+      databaseData.gyms[gymKey].problems[problemKey].likes += 1;
+      self.nextElementSibling.innerHTML = databaseData.gyms[gymKey].problems[problemKey].likes;
+    } else {
+      firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/likes/' + problemKey).set('false');
+      databaseData.users[firebase.auth().currentUser.uid].likes[problemKey] = 'false';
+      firebase.database().ref('gyms/' + gymKey + '/problems/' + problemKey + '/likes').set(databaseData.gyms[gymKey].problems[problemKey].likes - 1);
+      databaseData.gyms[gymKey].problems[problemKey].likes -= 1;
+      self.nextElementSibling.innerHTML = databaseData.gyms[gymKey].problems[problemKey].likes;
+      self.src = 'thumbsup-not-like.jpg';
+    }
+  } else {
+    alert('You are not logged in!');
+  }
+}
 let checkClick = (e) => {
   if (e.currentTarget.id !== 'logOut') {
     if ($('[aria-labelledby="' + e.currentTarget.id + '"]').hasClass('show')) {
@@ -114,7 +79,7 @@ let signUp = () => {
   var pass = signUpPass.value;
   var email = signUpEmail.value;
 
-  auth.createUserWithEmailAndPassword(email,pass);
+  auth.createUserWithEmailAndPassword(email, pass);
 }
 
 let signIn = () => {
@@ -122,7 +87,7 @@ let signIn = () => {
   var pass = signInPass.value;
   var email = signInEmail.value;
 
-  auth.signInWithEmailAndPassword(email,pass);
+  auth.signInWithEmailAndPassword(email, pass);
 }
 
 let logOut = () => {
@@ -137,13 +102,13 @@ let configLogIn = (firebaseUser) => {
   profileNavBtn.classList.remove('d-none');
 
   document.getElementById('openHome').click();
-  if(firebaseUser.metadata.creationTime == firebaseUser.metadata.lastSignInTime) {
+  if (firebaseUser.metadata.creationTime == firebaseUser.metadata.lastSignInTime) {
     firebase.database().ref('users/' + firebaseUser.uid).set({
       email: firebaseUser.email,
-      problems: [""],
-      photoUrl: "https://dfzcfb18p6v47.cloudfront.net/images/my_profile_icon_black.png?20180313032014",
-      desc: "",
-      gender: ""
+      problems: [''],
+      photoUrl: 'https://dfzcfb18p6v47.cloudfront.net/images/my_profile_icon_black.png?20180313032014',
+      desc: '',
+      gender: ''
     });
   }
 }
@@ -154,4 +119,10 @@ let configLogOut = () => {
   logOutNavBtn.classList.add('d-none');
   profileNavBtn.classList.add('d-none');
   document.getElementById('openHome').click();
+}
+let commentBtnClicked = (e) => {
+  let self = e.target;
+  let problemBox = self.parentElement;
+
+
 }
