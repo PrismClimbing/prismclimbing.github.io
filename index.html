@@ -56,110 +56,37 @@
     <div class='container bg-light' id='main-container'>
       <div class='collapse no-transition' id='homeContainer' data-parent='#main-container' aria-labelledby='openHome'>
         <div class='container'>
-          <div class='container'>
-            <h3 class='small-header'>Home</h3>
-          </div>
+          <include id='includes/home.html'></include>
         </div>
       </div>
       <div class='collapse show no-transition' id='homeContainer2' data-parent='#main-container' aria-labelledby='openHome2'>
         <div class='container'>
-          <div class='container'>
-            <h3 class='small-header'>Home</h3>
-          </div>
+          <include id='includes/home.html'></include>
         </div>
       </div>
       <div class='collapse no-transition' id='signincontainer' data-parent='#main-container' aria-labelledby='openSignin'>
         <div class='container small-header text-center'>
-          <h3>Sign in</h3>
-          <center>
-            <div class='card' style='width: 18rem;'>
-              <div class='card-body'>
-                <h5 class='card-title'>Welcome Back!</h5>
-                <h6 class='card-subtitle mb-2 text-muted'>Please enter your username and password</h6>
-                <div class='input-group mb-3'>
-                  <input type='text' class='form-control' placeholder='Email' aria-label='Email' aria-describedby='email-addon' id='loginEmail'>
-                </div>
-                <div class='input-group mb-3'>
-                  <input class='form-control' placeholder='Password' type='password' aria-label='Password' aria-describedby='password-addon' id='loginPass'>
-                </div>
-                <button type='button' class='btn btn-primary' onclick='signIn()'>Sign In</button>
-              </div>
-            </div>
-          </center>
+          <include id='includes/signin.html'></include>
         </div>
       </div>
       <div class='collapse no-transition' id='signupcontainer' data-parent='#main-container' aria-labelledby='openSignup'>
         <div class='container text-center small-header'>
-          <h3>Sign up</h3>
-          <center>
-            <div class='card' style='width: 18rem;'>
-              <div class='card-body'>
-                <h5 class='card-title'>Happy to see you here!</h5>
-                <h6 class='card-subtitle mb-2 text-muted'>Please create an email and a password</h6>
-                <div class='input-group mb-3'>
-                  <input type='text' class='form-control' placeholder='Email' aria-label='Email' aria-describedby='email-addon' id='signupEmail'>
-                </div>
-                <div class='input-group mb-3'>
-                  <input class='form-control' placeholder='Password' type='password' aria-label='Password' aria-describedby='password-addon' id='signupPass'>
-                </div>
-                <button type='button' class='btn btn-primary' onclick='signUp()'>Sign Up</button>
-              </div>
-            </div>
-          </center>
+          <include id='includes/signup.html'></include>
         </div>
       </div>
       <div class='collapse no-transition' id='featuresContainer' data-parent='#main-container' aria-labelledby='openFeatures'>
         <div class='container'>
-          <div class='container'>
-            <h3 class='small-header'>
-            Features
-            <small class='text-muted'>PrismClimbing</small>
-          </h3>
-          </div>
-          <div class='container'>
-            <div class='row features-list'>
-              <div class='col-4'>
-                <div class='list-group' id='list-tab' role='tablist'>
-                  <a class='list-group-item list-group-item-action active' id='list-free-list' data-toggle='list' href='#list-free' role='tab' aria-controls='free'>Free</a>
-                  <a class='list-group-item list-group-item-action' id='list-routesetting-list' data-toggle='list' href='#list-routesetting' role='tab' aria-controls='routesetting'>Routesetting</a>
-                  <a class='list-group-item list-group-item-action' id='list-easy-list' data-toggle='list' href='#list-easy' role='tab' aria-controls='easy'>Easy to use</a>
-                  <a class='list-group-item list-group-item-action' id='list-quick-list' data-toggle='list' href='#list-quick' role='tab' aria-controls='quick'>Quick updates</a>
-                </div>
-              </div>
-              <div class='col-8'>
-                <div class='tab-content' id='nav-tabContent'>
-                  <div class='tab-pane fade show active' id='list-free' role='tabpanel' aria-labelledby='list-free-list'>
-                    <p>PrismClimbing is <strong>100%</strong> free to use. Not only for climbers but also for gyms who want to document their routesetting.</p>
-                  </div>
-                  <div class='tab-pane fade' id='list-routesetting' role='tabpanel' aria-labelledby='list-routesetting-list'>
-                    <p>Routesetters can post their new routes with information like grades, color and the author. The climbers can then for example mark them as climbed.</p>
-                  </div>
-                  <div class='tab-pane fade' id='list-easy' role='tabpanel' aria-labelledby='list-easy-list'>
-                    <p>The PrismClimbing website is extremely easy and compact, however anyone could use it and still be satisfied. An experienced tech engineer to cavemen who just came out of their grotto</p>
-                  </div>
-                  <div class='tab-pane fade' id='list-quick' role='tabpanel' aria-labelledby='list-quick-list'>
-                    <p>PrismClimbings databases are built on google's Firebase. A database that is extremely quick and can reach out to hundreds of users at once. This is what makes updating so fast.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <include id='includes/features.html'></include>
         </div>
       </div>
       <div class='collapse no-transition' id='problemsContainer' data-parent='#main-container' aria-labelledby='openProblems'>
         <div class='container'>
-          <div class='container'>
-            <h3 class='small-header'>Problems</h3>
-            <div class='container list-group' id='problemsDiv'>
-            </div>
-          </div>
+          <include id='includes/problems.html'></include>
         </div>
       </div>
       <div class='collapse no-transition' id='profileContainer' data-parent='#main-container' aria-labelledby='openProfile'>
         <div class='container'>
-          <div class='container'>
-            <h3 class='small-header'>Profile</h3>
-          </div>
+          <include id='includes/profile.html'></include>
         </div>
       </div>
     </div>
@@ -180,10 +107,10 @@
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous'></script>
   <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous'></script>
-  <script src='initializerFunctions.js'></script>
-  <script src='allFunctions.js'></script>
-  <script src='script.js'></script>
-  <script src='db.js'></script>
+  <script src='scripts/initializerFunctions.js'></script>
+  <script src='scripts/functions.js'></script>
+  <script src='scripts/script.js'></script>
+  <script src='scripts/db.js'></script>
 </body>
 
 </html>

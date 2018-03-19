@@ -2,19 +2,19 @@ let initLikesDiv = (likes, problem, gym) => {
   let likesDiv = makeElem('div');
   let problemLikes = makeElem('h6');
   let likeImage = makeElem('img');
-  let imageSource = 'thumbsup-not-like.jpg';
+  let imageSource = 'images/thumbsup-not-like.jpg';
 
   setText(problemLikes, likes.toString());
   problemLikes.classList.add('problemLikes');
 
   let fireUser = firebase.auth().currentUser;
   if(!fireUser) {
-    imageSource = 'thumbsup-not-like.jpg';
+    imageSource = 'images/thumbsup-not-like.jpg';
   } else {
     let allLiked = databaseData.users[fireUser.uid].likes;
     for(j in toArray(allLiked)) {
       if(problem == toArray(allLiked)[j] && allLiked[toArray(allLiked)[j]] == 'true') {
-        imageSource = 'thumbsup-like.jpg'
+        imageSource = 'images/thumbsup-like.jpg'
       }
     }
   }
@@ -118,22 +118,18 @@ let initCommentDiv = (comments) => {
     commentImg.alt = 'Profile Image';
     commentImg.height = '40';
     commentImg.width = '40';
-    commentImg.classList.add('commentImg');
-    commentImg.classList.add('mr-3');
+    commentImg.classList.add('commentImg', 'mr-3');
 
     commentBody.append(commentUserName);
     commentBody.append(commentText);
 
     commentWrapper.append(commentImg);
     commentWrapper.append(commentBody);
-    commentWrapper.classList.add('media');
-    commentWrapper.classList.add('container');
-    commentWrapper.classList.add('commentWrapper');
+    commentWrapper.classList.add('media','container','commentWrapper');
 
     commentDivReturn.append(commentWrapper);
   }
-  commentDivReturn.classList.add('problemComments');
-  commentDivReturn.classList.add('list-group');
+  commentDivReturn.classList.add('problemComments', 'list-group');
 
   return commentDivReturn;
 }
@@ -150,7 +146,7 @@ let initCommentDiv = (comments) => {
 let initCommentButtonDiv = () => {
   let commentBtn = makeElem('img');
 
-  commentBtn.src = 'comment-button.png';
+  commentBtn.src = 'images/comment-button.png';
   commentBtn.height = '15';
   commentBtn.width = '15';
   commentBtn.classList.add('commentBtn');
@@ -168,7 +164,7 @@ let initCommentButtonDiv = () => {
 
 
 
-let initProblemInfo = (databaseData) => {
+let initProblemInfo = (databaseData, problemsDiv) => {
   let gyms = databaseData.gyms;
   for(i in gyms) {
     let gymDiv = makeElem('div');
@@ -177,7 +173,7 @@ let initProblemInfo = (databaseData) => {
     setText(gymNameAppend, gyms[i].name);
     problemsDiv.append(gymNameAppend);
     for(k in problems) {
-      let likeOrNot = 'thumbsup-not-like.jpg';
+      let likeOrNot = 'images/thumbsup-not-like.jpg';
       let grade = problems[k].grade;
       let comments = problems[k].comments;
       let likes = problems[k].likes;
@@ -196,19 +192,4 @@ let initProblemInfo = (databaseData) => {
       problemsDiv.append(gymDiv);
     }
   }
-}
-
-
-
-
-
-
-
-
-
-
-
-let initTextField = () => {
-  let text
-  let textField = makeElem('textarea');
 }

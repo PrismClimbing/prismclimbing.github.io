@@ -1,4 +1,3 @@
-const problemsDiv = document.getElementById('problemsDiv');
 let databaseData;
 
 $('.nav-link').click(e => {
